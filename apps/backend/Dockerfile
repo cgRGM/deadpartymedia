@@ -18,12 +18,9 @@ RUN apt-get update \
         curl \
     && rm -rf /var/lib/apt/lists/*
 
-# Install UV
-RUN pip install uv
-
-# Copy pyproject.toml and install dependencies
+# Install Python dependencies
 COPY pyproject.toml ./
-RUN uv pip install --system -r pyproject.toml
+RUN pip install --no-cache-dir -e .
 
 # Copy project
 COPY . .

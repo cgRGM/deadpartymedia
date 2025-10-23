@@ -1,3 +1,7 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
 [project]
 name = "deadpartymedia-backend"
 version = "0.1.0"
@@ -26,15 +30,8 @@ dependencies = [
     "django-ratelimit>=4.1.0",
 ]
 
-[build-system]
-requires = ["hatchling"]
-build-backend = "hatchling.build"
-
-[tool.django]
-settings_module = "backend.settings.dev"
-
-[tool.uv]
-dev-dependencies = [
+[project.optional-dependencies]
+dev = [
     "django-debug-toolbar>=4.4.0",
     "black>=24.8.0",
     "isort>=5.13.0",
@@ -44,3 +41,6 @@ dev-dependencies = [
     "pytest-django>=4.9.0",
     "factory-boy>=3.3.0",
 ]
+
+[tool.django]
+settings_module = "backend.settings.dev"
