@@ -6,7 +6,13 @@
     "build": "turbo build",
     "dev": "turbo dev",
     "lint": "turbo lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "backend:dev": "cd apps/backend && python manage.py runserver",
+    "backend:migrate": "cd apps/backend && python manage.py migrate",
+    "backend:makemigrations": "cd apps/backend && python manage.py makemigrations",
+    "backend:shell": "cd apps/backend && python manage.py shell",
+    "backend:collectstatic": "cd apps/backend && python manage.py collectstatic --noinput",
+    "backend:createsuperuser": "cd apps/backend && python manage.py createsuperuser"
   },
   "devDependencies": {
     "@workspace/eslint-config": "workspace:*",
